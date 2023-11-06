@@ -39,6 +39,8 @@ public :
 			return "Grade too low";
 		}
 	};
+	void increment();
+	void decrement();
 
 private	:
 	std::string _name;

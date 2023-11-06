@@ -1,4 +1,6 @@
 #include "../header/Bureaucrat.hpp"
+#include "../header/Form.hpp"
+
 
 Bureaucrat::Bureaucrat ()
 {
@@ -94,8 +96,42 @@ std::string Bureaucrat::getName() const
 	return(_name);
 }
 
+
+
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& a)
 {
 	std::cout << a.getName() << ", bureaucrat grade " << a.getGrade();
 	return(out);
+}
+
+void Bureaucrat::signForm(Form &Form)
+{
+	if (Form.getCanSign() > _grade)
+	{
+		std::cout << _name << " signed because " << _grade << " Has greater power than " << Form.canSign() << std::endl;
+		Form.beSigned(*this);
+	}
+	else
+	{
+	 	std::cout << _name << " couldn't sign " << Form.name() << "because he has a too low grade" << std::endl; 
+		throw GradeTooLowException();
+	}
+}
+
+
+void Bureaucrat::increment()
+{
+	_grade++;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
+}
+void Bureaucrat::decrement()
+{
+	_grade--;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
 }

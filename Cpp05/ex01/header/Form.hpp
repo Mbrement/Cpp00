@@ -1,9 +1,11 @@
-#ifndef FROM_HPP
-#define FROM_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -13,18 +15,15 @@ public :
 	Form();
     Form(Form &other);
     Form &operator=(Form &other);
-    Form(const std::string name);
-    Form(const std::string name, int grade);
-	Form (const Form &Form);
 	~Form();
-	Form	&operator=(const Form &Form);
 /*cannonical form*/
 
+    Form(const std::string name, int canSign, int canExec);
 
 	int getCanSign() const;
 	int getCanExec() const;
 	int getSigned() const;
-	void Signed( class::Bureaucrat);
+	void Signed(Bureaucrat &Bureaucrat);
 	std::string getName() const;
 
 	class GradeTooHighException : public std::exception
@@ -43,14 +42,18 @@ public :
 			return "Grade too low";
 		}
 	};
-
+	const std::string& name() const;
+	bool signature() const;
+	int canSign() const;
+	int canExec() const;
+	void beSigned(class Bureaucrat &Bureaucrat);
 
 
 private	:
 	std::string const _name;
-	bool _signature = 0;
-	int _canSign;
-	int _canExec;
+	bool _signature;
+	const int _canSign;
+	const int _canExec;
 };
 std::ostream& operator<<(std::ostream& out, const Form& a);
 #endif

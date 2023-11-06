@@ -1,8 +1,8 @@
 #include "../header/HumanA.hpp"
 
 HumanA::HumanA(const std::string& name, class Weapon &Weapon) : 
-	name(name), 
-	Weapon(&Weapon)
+	Weapon(&Weapon),
+	name(name)
 {
 	std::cout << name << " : created" << std::endl;
 }

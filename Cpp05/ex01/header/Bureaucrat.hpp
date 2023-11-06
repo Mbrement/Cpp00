@@ -1,8 +1,11 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <iostream>
 #include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -22,6 +25,7 @@ public :
 	void setName(std::string newName);
 	int getGrade() const;
 	std::string getName() const;
+	void  signForm(Form &Form);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -39,6 +43,8 @@ public :
 			return "Grade too low";
 		}
 	};
+	void increment();
+	void decrement();
 
 private	:
 	std::string _name;

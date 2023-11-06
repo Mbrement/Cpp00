@@ -1,5 +1,6 @@
 SRCS	=	main.cpp\
 			Bureaucrat.cpp\
+			Form.cpp\
 			
 
 DIR_SRCS = src/
@@ -15,12 +16,13 @@ CC++	=	c++
 MKDIR	=	mkdir -p
 
 HEADERS	=	Bureaucrat.hpp\
+			Form.hpp\
 			
 
-NAME	=	Bureaucrat
+NAME	=	Form
 
 
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+C++FLAGS	= -Wall -Wextra -Werror -std=c++98 -v
  
 all :		${NAME}
 

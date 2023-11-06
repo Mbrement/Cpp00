@@ -99,3 +99,20 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& a)
 	std::cout << a.getName() << ", bureaucrat grade " << a.getGrade();
 	return(out);
 }
+
+void Bureaucrat::increment()
+{
+	_grade++;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
+}
+void Bureaucrat::decrement()
+{
+	_grade--;
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
+}

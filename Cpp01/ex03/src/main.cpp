@@ -15,6 +15,7 @@ int main(void)
  {
 	Weapon club = Weapon("spiky bonk");
 	HumanB mococo("Mococo");
+	mococo.attack();
 	mococo.setWeapon(club);
 	mococo.attack();
 	club.setType("some other type of bonk");
