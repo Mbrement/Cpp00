@@ -18,9 +18,9 @@ public :
 	Bureaucrat	&operator=(const Bureaucrat &Bureaucrat);
 /*cannonical form*/
 
-	void setGrade(int newGrade);
 	void setName(std::string newName);
 	int getGrade() const;
+	void	changeGrade(int newGrade);
 	std::string getName() const;
 
 	class GradeTooHighException : public std::exception
@@ -28,7 +28,7 @@ public :
 	public:
 		const char* what() const throw()
 		{
-			return "Grade too high";
+			return "Grade too high, set to min";
 		}
 	};
 	class GradeTooLowException : public std::exception
@@ -36,13 +36,14 @@ public :
 	public:
 		const char* what() const throw()
 		{
-			return "Grade too low";
+			return "Grade too low, set to min";
 		}
 	};
 	void increment();
 	void decrement();
 
 private	:
+	void setGrade(int newGrade);
 	std::string _name;
 	int _grade;
 };

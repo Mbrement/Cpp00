@@ -5,11 +5,13 @@
 int	main(void)
 {
 	Bureaucrat pape;
-	Bureaucrat PDG("PDG", 1);
-
-	std::cout << pape << std::endl;
+	Bureaucrat PDG("PDG", 50);
 	std::cout << PDG << std::endl;
-	pape.setGrade(2);
+	PDG.decrement();
+	std::cout << PDG << std::endl;
+	PDG.increment();
+	std::cout << PDG << std::endl;
+	std::cout << PDG << std::endl;
 	std::cout << pape << std::endl;
-	return 0;
+	return (0);
 }

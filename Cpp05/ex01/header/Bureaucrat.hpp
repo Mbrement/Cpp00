@@ -21,7 +21,6 @@ public :
 	Bureaucrat	&operator=(const Bureaucrat &Bureaucrat);
 /*cannonical form*/
 
-	void setGrade(int newGrade);
 	void setName(std::string newName);
 	int getGrade() const;
 	std::string getName() const;
@@ -47,6 +46,7 @@ public :
 	void decrement();
 
 private	:
+	void setGrade(int newGrade);
 	std::string _name;
 	int _grade;
 };

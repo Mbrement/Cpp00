@@ -6,15 +6,9 @@
 
 int	main(void)
 {
-	Bureaucrat PDG("PDH", 1);
-		try{
-	Form test("w", 3, 155);
-	}
-	catch(std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	Bureaucrat PDG("PDH", 0);
 	Form test("test", 3, 10);
+	// Form yay("test", 3, 155);
 
 	std::cout << test <<std::endl;
 	PDG.signForm(test);

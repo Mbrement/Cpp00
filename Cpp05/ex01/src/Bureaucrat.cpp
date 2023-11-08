@@ -7,10 +7,6 @@ Bureaucrat::Bureaucrat ()
 	std::cout << "Default Bureaucrat constructor called" << std::endl;
 	_name = "defaultBureaucrat";
 	_grade = 150;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat (const std::string name)
@@ -18,30 +14,30 @@ Bureaucrat::Bureaucrat (const std::string name)
 	std::cout << "Named Bureaucrat constructor called" << std::endl;
 	_name = name;
 	_grade = 150;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
 }
 Bureaucrat::Bureaucrat (int grade)
 {
 	std::cout << "Graded Bureaucrat constructor called" << std::endl;
 	_name = "defaultBureaucrat";
 	_grade = grade;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
+	try{
+		setGrade(grade);
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }
 Bureaucrat::Bureaucrat (const std::string name, int grade)
 {
 	std::cout << "Named & graded Bureaucrat constructor called" << std::endl;
 	_name = name;
 	_grade = grade;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
+	try{
+		setGrade(grade);
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat (const Bureaucrat &Bureaucrat)
@@ -49,10 +45,12 @@ Bureaucrat::Bureaucrat (const Bureaucrat &Bureaucrat)
 	std::cout <<  "Copy Bureaucrat constructor called" << std::endl;
 	_name = Bureaucrat._name;
 	_grade = Bureaucrat._grade;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
+	try{
+		setGrade(Bureaucrat._grade);
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()
