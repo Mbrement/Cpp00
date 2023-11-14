@@ -20,12 +20,12 @@ public :
 	int		toInt(void) const;
 
 	Fixed	&operator=(const Fixed &Fixed);
-	const bool	operator>(const Fixed &Fixed);
-	const bool	operator<(const Fixed &Fixed);
-	const bool	operator>=(const Fixed &Fixed);
-	const bool	operator<=(const Fixed &Fixed);
-	const bool	operator==(const Fixed &Fixed);
-	const bool	operator!=(const Fixed &Fixed);
+	bool	operator>(const Fixed &Fixed);
+	bool	operator<(const Fixed &Fixed);
+	bool	operator>=(const Fixed &Fixed);
+	bool	operator<=(const Fixed &Fixed);
+	bool	operator==(const Fixed &Fixed);
+	bool	operator!=(const Fixed &Fixed);
 	Fixed	&operator+(const Fixed &Fixed);
 	Fixed	&operator-(const Fixed &Fixed);
 	Fixed	operator*(const Fixed &Fixed);

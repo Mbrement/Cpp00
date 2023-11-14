@@ -16,23 +16,24 @@ void Contact::addContact()
 	addDarkestSecret();
 }
 
-void Contact::printContact()
+void Contact::printContact(int i)
 {
-
+	if (i != 0)
+		std::cout << std::setw(10) << i  << '|';
 	if (_firstName.size() <= 10)
-		std::cout << std::setw(10) << _firstName << '|';
+		std::cout << " "<<std::setw(10) << _firstName << '|';
 	else
-		std::cout << _firstName.substr(0, 9) << ".|";
+		std::cout << " "<<_firstName.substr(0, 9) << ".|";
 
 	if (_lastName.size() <= 10)
-		std::cout << std::setw(10) << _lastName << '|';
+		std::cout << " "<<std::setw(10) << _lastName << '|';
 	else
-		std::cout << _lastName.substr(0, 9) << ".|";
+		std::cout << " "<<_lastName.substr(0, 9) << ".|";
 
 	if (_nickName.size() <= 10)
-		std::cout <<  std::setw(10) << _nickName << std::endl;
+		std::cout <<  " "<<std::setw(10) << _nickName << std::endl;
 	else
-		std::cout << _nickName.substr(0, 9) << "." << std::endl;
+		std::cout << " "<<_nickName.substr(0, 9) << "." << std::endl;
 }
 
 void Contact::addFirstName()

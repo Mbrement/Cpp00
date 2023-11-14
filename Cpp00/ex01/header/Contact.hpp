@@ -8,7 +8,7 @@ class Contact
 public:
 	Contact();
 	void addContact();
-	void printContact();
+	void printContact(int i);
 private:
 	std::string _firstName;
 	std::string _lastName;

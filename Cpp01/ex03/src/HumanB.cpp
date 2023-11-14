@@ -1,5 +1,17 @@
-#include "../header/HumanB.hpp"
-#include "../header/Weapon.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 21:30:45 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/13 21:30:47 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 HumanB::HumanB(const std::string& name) : 
 	name(name)

@@ -75,7 +75,7 @@ int		Fixed::getRawBits(void)const
 void	Fixed::setRawBits(int const raw)
 {
 	std::cout <<  "setRawBits called" << std::endl;
-	rawInt = 0;
+	rawInt = raw;
 }
 
 float	Fixed::toFloat(void) const

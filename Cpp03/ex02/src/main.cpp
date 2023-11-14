@@ -31,4 +31,5 @@ int	main(void)
 	Original.takeDamage(5);
 	Original.beRepaired(1);
 	Original.takeDamage(10);
+	Original.highFiveGuys();
 }

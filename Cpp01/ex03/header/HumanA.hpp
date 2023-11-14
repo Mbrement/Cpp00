@@ -1,9 +1,21 @@
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 21:30:01 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/13 21:30:02 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanA
 {

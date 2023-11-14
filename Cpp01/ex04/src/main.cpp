@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 21:31:21 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/13 21:31:21 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fstream>
 #include <iostream>
 
@@ -14,19 +26,25 @@ int main (int argc, char **argv)
 		std::cout << "Wrong number of argument" << std::endl;
 		return (1);
 	}
-	fileName = argv[1];
+	if (!argv[2][0])
+	{
+		std::cout << "Invalid argument" << std::endl;
+		return (1);
+	}
+	fileName.assign(argv[1]);
 	targetString = argv[2];
 	replaceString = argv[3];
-	targetFile.open(fileName);
+	targetFile.open(argv[1]);
 	if (!targetFile)
 	{
 		std::cout << "Coulnd't read " << argv[1] << std::endl;
 		return (1);
 	}
-	newFile.open(fileName + ".replace", std::ios::out | std::ios::trunc);
+	fileName = fileName + ".remplace";
+	newFile.open(fileName.c_str(), std::ios::out | std::ios::trunc);
 	if (!newFile)
 	{
-		std::cout << "Coulnd't read " << fileName + ".replace" << std::endl;
+		std::cout << "Coulnd't read " << fileName << std::endl;
 		targetFile.close();
 		return (1);
 	}

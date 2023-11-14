@@ -1,8 +1,20 @@
-#ifndef HARL_HPP
-#define HARL_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 21:32:14 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/13 21:32:14 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef HARL_HPP
+# define HARL_HPP
+
+# include <iostream>
+# include <string>
 
 enum LogLevel
 {

@@ -32,5 +32,5 @@ int		Fixed::getRawBits(void)const
 void	Fixed::setRawBits(int const raw)
 {
 	std::cout <<  "setRawBits called" << std::endl;
-	this->rawInt = 0;
+	this->rawInt = raw;
 }

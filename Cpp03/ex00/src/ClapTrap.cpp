@@ -3,11 +3,17 @@
 ClapTrap::ClapTrap ()
 {
 	_name = "defaultClapTrap";
+	_attackDamages = 0;
+	_energyPoints = 10;
+	_hitPoints = 10;
 	std::cout << "Allow me to introduce myself -- I am a CL4P-TP steward robot, but my friends call me "<< _name <<"! Or they would, if any of them were still alive (Default constructor called)" << std::endl;
 }
 ClapTrap::ClapTrap (const std::string name)
 {
 	_name = name;
+	_attackDamages = 0;
+	_energyPoints = 10;
+	_hitPoints = 10;
 	std::cout << "Allow me to introduce myself -- I am a CL4P-TP steward robot, but my friends call me "<< name <<"! Or they would, if any of them were still alive (Named constructor called)" << std::endl;
 }
 

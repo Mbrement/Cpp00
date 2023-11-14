@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 21:31:56 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/13 21:31:58 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void	Harl::complain(const std::string &level)
@@ -21,8 +33,15 @@ void	Harl::complain(const std::string &level)
 	while (i < 4)
 	{
 		if (names[i] == level)
+		{
 			funcs[i]();
+			break;
+		}
 		i++;
+	}
+	if (i >= 4)
+	{
+		std::cout << "Wrong imput message for Harl" << std::endl;
 	}
 }
 
