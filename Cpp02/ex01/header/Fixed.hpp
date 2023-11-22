@@ -1,8 +1,19 @@
-#ifndef FIXED_HPP
-#define FIXED_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 03:14:39 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/14 03:14:39 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <iostream>
 
 class Fixed
 {
@@ -20,7 +31,7 @@ public :
 	int		toInt(void) const;
 
 private	:
-	int 	fractional;
+	static const int 	fractional = 8;
 	int		rawInt;
 };
 	std::ostream	&operator<<(std::ostream &out, const Fixed &fixed);

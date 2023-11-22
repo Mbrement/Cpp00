@@ -40,7 +40,7 @@ std::string Brain::getIdea(int i)
 	return ("");
 }
 
-void Brain::replaceIdea(int i, const std::string newIdea)
+void Brain::replaceIdea(int i, const std::string &newIdea)
 {
 	if (i < 100 && i >= 0)
 		_idea[i] = newIdea;

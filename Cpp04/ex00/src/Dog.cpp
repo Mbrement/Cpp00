@@ -7,7 +7,7 @@ Dog::Dog () : Animal()
 	std::cout << "Default Dog constructor called" << std::endl;
 }
 
-Dog::Dog (const std::string name) : Animal(name)/*,Brain();*/
+Dog::Dog (const std::string &name) : Animal(name)/*,Brain();*/
 {
 	_name = name;
 	type = "Dog";

@@ -7,7 +7,7 @@ WrongAnimal::WrongAnimal ()
 	std::cout << "Default WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal (const std::string name)
+WrongAnimal::WrongAnimal (const std::string &name)
 {
 	_name = name;
 	std::cout << "Named WrongAnimal constructor called" << std::endl;
@@ -36,12 +36,12 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &WrongAnimal)
 
 //___________________________________
 
-void	WrongAnimal::setType(std::string newType)
+void	WrongAnimal::setType(const std::string &newType)
 {
 	type = newType;
 }
 
-void	WrongAnimal::setName(std::string newName)
+void	WrongAnimal::setName(const std::string &newName)
 {
 	_name = newName;
 }

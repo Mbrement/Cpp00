@@ -10,14 +10,14 @@ class AAnimal
 public :
 /*cannonical form*/
 	AAnimal();
-	AAnimal(const std::string name);
+	AAnimal(const std::string &name);
 	AAnimal (const AAnimal &AAnimal);
 	virtual ~AAnimal();
 	virtual AAnimal	&operator=(const AAnimal &AAnimal);
 /*cannonical form*/
 	virtual void makeSound() const = 0;
-	virtual void setName(std::string newName);
-	virtual void setType(std::string newType);
+	virtual void setName(const std::string &newName);
+	virtual void setType(const std::string &newType);
 	virtual const std::string getType() const;
 	virtual const std::string getName() const;
 

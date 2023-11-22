@@ -7,7 +7,7 @@ Animal::Animal ()
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
-Animal::Animal (const std::string name)
+Animal::Animal (const std::string &name)
 {
 	_name = name;
 	std::cout << "Named Animal constructor called" << std::endl;
@@ -36,12 +36,12 @@ Animal	&Animal::operator=(const Animal &Animal)
 
 //___________________________________
 
-void	Animal::setType(std::string newType)
+void	Animal::setType(const std::string &newType)
 {
 	type = newType;
 }
 
-void	Animal::setName(std::string newName)
+void	Animal::setName(const std::string &newName)
 {
 	_name = newName;
 }

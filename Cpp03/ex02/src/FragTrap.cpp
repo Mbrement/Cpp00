@@ -1,4 +1,16 @@
-#include "../header/FragTrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 04:03:23 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/22 02:08:48 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap()
 {
@@ -10,7 +22,7 @@ FragTrap::FragTrap() : ClapTrap()
 	_type = "FragTrap";
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 {
 	std::cout << "FragTrap by the name of  "<< name <<" ready to serv ! (Named constructor called)" << std::endl;
 	_attackDamages = 20;

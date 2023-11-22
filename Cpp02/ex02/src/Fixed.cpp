@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 03:15:35 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/14 03:15:36 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
 {
-	_fractional = 8;
 	_rawInt = 0;
 }
 
 Fixed::Fixed(const int value)
 {
-	_fractional = 8;
 	_rawInt = value << this->_fractional;
 }
 
@@ -17,7 +27,6 @@ Fixed::Fixed(const float value)
 	float tmp;
 	int i;
 	float invPower;
-	_fractional = 8;
 	int mask = 1 << (_fractional - 1);
 
 	_rawInt = static_cast<int>(value) << _fractional;
@@ -38,7 +47,6 @@ Fixed::Fixed(const float value)
 
 Fixed::Fixed (const Fixed &Fixed)
 {
-	_fractional = 8;
 	_rawInt = Fixed.getRawBits();
 }
 
@@ -56,7 +64,7 @@ Fixed	&Fixed::operator=(const Fixed &target)
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
 {
-	std::cout << fixed.toFloat();
+	out << fixed.toFloat();
 	return (out);
 }
 //______________________________-
@@ -93,94 +101,74 @@ int		Fixed::toInt(void) const
 }
 
 Fixed& Fixed::min(Fixed &first, Fixed &second)
-	{
-		if (first.toFloat() < second.toFloat())
-			return(first);
-		else
-			return (second);
-	}
+{
+	if (first.toFloat() < second.toFloat())
+		return(first);
+	else
+		return (second);
+}
 const Fixed& Fixed::min(const Fixed &first, const Fixed &second)
-	{
-		if (first.toFloat() < second.toFloat())
-			return(first);
-		else
-			return (second);
-	}
+{
+	if (first.toFloat() < second.toFloat())
+		return(first);
+	else
+		return (second);
+}
 Fixed& Fixed::max(Fixed &first, Fixed &second)
-	{
-		if (first.toFloat() > second.toFloat())
-			return(first);
-		else
-			return (second);
-	}
+{
+	if (first.toFloat() > second.toFloat())
+		return(first);
+	else
+		return (second);
+}
 const Fixed& Fixed::max(const Fixed &first, const Fixed &second)
-	{
-		if (first.toFloat() > second.toFloat())
-			return(first);
-		else
-			return (second);
-	}
-
-
+{
+	if (first.toFloat() > second.toFloat())
+		return(first);
+	else
+		return (second);
+}
 
 bool	Fixed::operator>(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() > other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 bool	Fixed::operator<(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() < other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 bool	Fixed::operator>=(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() >= other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 bool	Fixed::operator<=(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() <= other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 bool	Fixed::operator==(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() == other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 bool	Fixed::operator!=(const Fixed &other)
 {
-	int i;
-
 	if (toFloat() != other.toFloat())
-		i =1;
-	i = 0;
-	return (i);
+		return true;
+	return (false);
 }
 
 Fixed	&Fixed::operator+(const Fixed &Fixed)

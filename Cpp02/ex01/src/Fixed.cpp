@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 03:15:11 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/14 03:15:11 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
 {
 	std::cout <<  "Default constructor called" << std::endl;
-	fractional = 8;
 	rawInt = 0;
 }
 
 Fixed::Fixed(const int value)
 {
 	std::cout <<  "Int constructor called" << std::endl;
-	fractional = 8;
 	rawInt = value << this->fractional;
 }
 
@@ -20,7 +30,6 @@ Fixed::Fixed(const float value)
 	float tmp;
 	int i;
 	float invPower;
-	fractional = 8;
 	int mask = 1 << (fractional - 1);
 
 	rawInt = static_cast<int>(value) << fractional;
@@ -42,7 +51,6 @@ Fixed::Fixed(const float value)
 Fixed::Fixed (const Fixed &Fixed)
 {
 	std::cout <<  "Copy constructor called" << std::endl;
-	fractional = 8;
 	rawInt = Fixed.getRawBits();
 }
 
@@ -62,7 +70,7 @@ Fixed	&Fixed::operator=(const Fixed &target)
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
 {
-	std::cout << fixed.toFloat();
+	out << fixed.toFloat();
 	return (out);
 }
 //______________________________-

@@ -7,7 +7,7 @@ WrongCat::WrongCat () : WrongAnimal()
 	std::cout << "Default WrongCat constructor called" << std::endl;
 }
 
-WrongCat::WrongCat (const std::string name) : WrongAnimal(name)
+WrongCat::WrongCat (const std::string &name) : WrongAnimal(name)
 {
 	_name = name;
 	type = "WrongCat";

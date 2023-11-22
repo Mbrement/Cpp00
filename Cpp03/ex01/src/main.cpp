@@ -1,4 +1,4 @@
-#include "../header/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 
 int	main(void)
@@ -29,5 +29,5 @@ int	main(void)
 	Original.takeDamage(5);
 	Original.beRepaired(1);
 	Original.takeDamage(10);
-	Original.guarGate();
+	Original.guardGate();
 }

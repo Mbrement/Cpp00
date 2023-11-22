@@ -18,7 +18,7 @@ Cat::Cat () : Animal()
 	}
 }
 
-Cat::Cat (const std::string name) : Animal(name)
+Cat::Cat (const std::string &name) : Animal(name)
 {
 	std::cout << "Named Cat constructor called" << std::endl;
 	_name = name;
@@ -58,6 +58,7 @@ Cat	&Cat::operator=(const Cat &Cat)
 	std::cout <<  "Default Cat assignement called" << std::endl;
 	_name = Cat._name;
 	type = Cat.type;
+	delete Brain;
 	Brain = new class Brain;
 	int i;
 

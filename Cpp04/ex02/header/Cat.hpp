@@ -12,7 +12,7 @@ class Cat : public AAnimal
 public :
 /*cannonical form*/
 	Cat();
-	Cat(const std::string name);
+	Cat(const std::string &name);
 	Cat (const Cat &Cat);
 	~Cat();
 	virtual Cat	&operator=(const Cat &Cat);

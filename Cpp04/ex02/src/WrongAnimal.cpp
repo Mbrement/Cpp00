@@ -36,12 +36,12 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &WrongAnimal)
 
 //___________________________________
 
-void	WrongAnimal::setType(std::string newType)
+void	WrongAnimal::setType(const std::string &newType)
 {
 	type = newType;
 }
 
-void	WrongAnimal::setName(std::string newName)
+void	WrongAnimal::setName(const std::string &newName)
 {
 	_name = newName;
 }

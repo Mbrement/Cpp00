@@ -1,4 +1,16 @@
-#include "../header/ClapTrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 04:02:25 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/22 02:01:35 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap ()
 {
@@ -10,7 +22,7 @@ ClapTrap::ClapTrap ()
 	std::cout << "Allow me to introduce myself -- I am a CL4P-TP steward robot, but my friends call me "<< _name <<"! Or they would, if any of them were still alive (Default constructor called)" << std::endl;
 }
 
-ClapTrap::ClapTrap (const std::string name)
+ClapTrap::ClapTrap (const std::string &name)
 {
 	_name = name;
 	_attackDamages = 0;

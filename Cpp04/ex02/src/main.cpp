@@ -1,5 +1,5 @@
-#include "../header/Dog.hpp"
-#include "../header/Cat.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int	main(void)
 {

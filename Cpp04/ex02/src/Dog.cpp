@@ -12,17 +12,18 @@ Dog::Dog () : AAnimal()
 	while (++i < 100)
 	{
 		if (i % 2)
-			this->Brain->replaceIdea(i, "Ball !");
+			this->Brain->replaceIdea(i, "Treat ?!");
 		else
-			this->Brain->replaceIdea(i, "World domination");
+			this->Brain->replaceIdea(i, "Bones !");
 	}
 }
 
-Dog::Dog (const std::string name) : AAnimal(name)
+Dog::Dog (const std::string &name) : AAnimal(name)
 {
 	std::cout << "Named Dog constructor called" << std::endl;
 	_name = name;
 	type = "Dog";
+	delete Brain;
 	Brain = new class Brain;
 	int i;
 
@@ -39,12 +40,8 @@ Dog::Dog (const std::string name) : AAnimal(name)
 Dog::Dog (const Dog &Dog) : AAnimal(Dog)
 {
 	std::cout <<  "Copy Dog constructor called" << std::endl;
-	int i;
 	Brain = new class Brain;
-
-	i = -1;
-	while (++i < 100)
-		Brain->replaceIdea(i, Dog.Brain->getIdea(i));
+	*Brain = *Dog.Brain;
 }
 
 Dog::~Dog()
@@ -57,13 +54,7 @@ Dog	&Dog::operator=(const Dog &Dog)
 {
 	std::cout <<  "Default Dog assignement called" << std::endl;
 	_name = Dog._name;
-	type = Dog.type;
-	int i;
-	Brain = new class Brain;
-
-	i = -1;
-	while (++i < 100)
-		Brain->replaceIdea(i, Dog.Brain->getIdea(i));
+	*Brain = *Dog.Brain;
 	return(*this);
 }
 

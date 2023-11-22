@@ -1,4 +1,17 @@
-#include "../header/ScavTrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 04:03:40 by mbrement          #+#    #+#             */
+/*   Updated: 2023/11/22 04:26:53 by mbrement         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -10,7 +23,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	_type = "ScavTrap";
 }
 
-ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap by the name of  "<< name <<" ready to serv ! (Named constructor called)" << std::endl;
 	_attackDamages = 30;
@@ -39,7 +52,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &ScavTrap)
 	return(*this);
 }
 
-void ScavTrap::guarGate()
+void ScavTrap::guardGate()
 {
 	std::cout << _name << " is now a gate keeper ! No pineapple on pizza !" << std::endl;
 }

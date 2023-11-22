@@ -11,7 +11,7 @@ class WrongCat : public WrongAnimal
 public :
 /*cannonical form*/
 	WrongCat();
-	WrongCat(const std::string name);
+	WrongCat(const std::string &name);
 	WrongCat (const WrongCat &WrongCat);
 	~WrongCat();
 	WrongCat	&operator=(const WrongCat &WrongCat);

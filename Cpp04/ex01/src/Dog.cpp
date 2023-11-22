@@ -18,11 +18,12 @@ Dog::Dog () : Animal()
 	}
 }
 
-Dog::Dog (const std::string name) : Animal(name)
+Dog::Dog (const std::string &name) : Animal(name)
 {
 	std::cout << "Named Dog constructor called" << std::endl;
 	_name = name;
 	type = "Dog";
+	delete Brain;
 	Brain = new class Brain;
 	int i;
 

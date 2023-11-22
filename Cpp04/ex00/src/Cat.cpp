@@ -7,7 +7,7 @@ Cat::Cat () : Animal()
 	std::cout << "Default Cat constructor called" << std::endl;
 }
 
-Cat::Cat (const std::string name) : Animal(name)
+Cat::Cat (const std::string &name) : Animal(name)
 {
 	_name = name;
 	type = "Cat";

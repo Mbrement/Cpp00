@@ -10,14 +10,14 @@ class WrongAnimal
 public :
 /*cannonical form*/
 	WrongAnimal();
-	WrongAnimal(const std::string name);
+	WrongAnimal(const std::string &name);
 	WrongAnimal (const WrongAnimal &WrongAnimal);
 	virtual ~WrongAnimal();
 	WrongAnimal	&operator=(const WrongAnimal &WrongAnimal);
 /*cannonical form*/
 	virtual void makeSound();
-	void setName(std::string newName);
-	void setType(std::string newType);
+	void setName(const std::string &newName);
+	void setType(const std::string &newType);
 	const std::string getType();
 	const std::string getName();
 

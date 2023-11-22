@@ -11,7 +11,7 @@ class Cat : public Animal
 public :
 /*cannonical form*/
 	Cat();
-	Cat(const std::string name);
+	Cat(const std::string &name);
 	Cat (const Cat &Cat);
 	~Cat();
 	Cat	&operator=(const Cat &Cat);

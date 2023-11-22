@@ -13,7 +13,7 @@ class Dog : public AAnimal,
 public :
 /*cannonical form*/
 	Dog();
-	Dog(const std::string name);
+	Dog(const std::string &name);
 	Dog (const Dog &Dog);
 	~Dog();
 	Dog	&operator=(const Dog &Dog);

@@ -15,7 +15,7 @@ public :
 	Brain	&operator=(const Brain &Brain);
 /*cannonical form*/
 	std::string getIdea(int i);
-	void replaceIdea(int i, const std::string newIdea);
+	void replaceIdea(int i, const std::string &newIdea);
 
 	private :
 	std::string _idea[100];
