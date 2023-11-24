@@ -6,7 +6,7 @@
 /*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 04:02:15 by mbrement          #+#    #+#             */
-/*   Updated: 2023/11/22 04:26:53 by mbrement         ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 17:56:02 by mbrement         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public :
 	ScavTrap	&operator=(const ScavTrap &ScavTrap);	
 /*cannonical form*/
 	void guardGate();
+	void attack (const std::string &target);
 
 private	:
 };

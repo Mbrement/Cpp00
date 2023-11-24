@@ -6,7 +6,7 @@
 /*   By: mbrement <mbrement@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 04:02:25 by mbrement          #+#    #+#             */
-/*   Updated: 2023/11/22 02:01:35 by mbrement         ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 17:55:32 by mbrement         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,32 +58,34 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &ClapTrap)
 	return(*this);
 }
 
-	void ClapTrap::attack (const std::string &target)
+void ClapTrap::attack (const std::string &target)
+{
+	std::cout << _type << " "<< _name << " try to attack"  << std::endl;
+	if (_hitPoints > 0 && _energyPoints > 0)
 	{
-		std::cout << _type << " "<< _name << " try to attack"  << std::endl;
-		if (_hitPoints > 0 && _energyPoints > 0)
-		{
-			std::cout << _type << " " << _name << " hit " << target << " for " << _attackDamages << " ! Not so tough after all !"  << std::endl;
-			_energyPoints--;
-		}
+		std::cout << _type << " " << _name << " hit " << target << " for " << _attackDamages << " ! Not so tough after all !"  << std::endl;
+		_energyPoints--;
 	}
-	void ClapTrap::takeDamage(unsigned int amount)
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	std::cout << _type  << " " << _name << " is attacked for " << amount << " !" << std::endl;
+	if (_hitPoints > 0)
+		_hitPoints -= amount;
+	if (_hitPoints <= 0)
+		std::cout << _name << " is down !" << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout << _type  << " " << _name << " try to repear hitself, ";
+	if (_hitPoints >= 0 && _energyPoints > 0)
 	{
-		std::cout << _type  << " " << _name << " is attacked for " << amount << " !" << std::endl;
-		if (_hitPoints > 0)
-			_hitPoints -= amount;
-		if (_hitPoints <= 0)
-			std::cout << _name << " is down !" << std::endl;
+		_hitPoints += amount;
+		_energyPoints--;
+		std::cout << "Sweet life juice ! + " << amount << " !"<< std::endl;
 	}
-	void ClapTrap::beRepaired(unsigned int amount)
-	{
-		std::cout << _type  << " " << _name << " try to repear hitself, ";
-		if (_hitPoints >= 0 && _energyPoints > 0)
-		{
-			_hitPoints += amount;
-			_energyPoints--;
-			std::cout << "Sweet life juice ! + " << amount << " !"<< std::endl;
-		}
-		else
-			std::cout << "but nothing happen !" << std::endl;
-	}
+	else
+		std::cout << "but nothing happen !" << std::endl;
+}

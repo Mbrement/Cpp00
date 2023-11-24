@@ -112,7 +112,12 @@ void Bureaucrat::signForm(Form &Form)
 	else
 	{
 	 	std::cout << _name << " couldn't sign " << Form.name() << "because he has a too low grade" << std::endl; 
-		throw GradeTooLowException();
+		try{
+			Form.beSigned(*this);
+		}
+		catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 	}
 }
 

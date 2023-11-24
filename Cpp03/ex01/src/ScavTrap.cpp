@@ -43,3 +43,13 @@ void ScavTrap::guardGate()
 {
 	std::cout << _name << " is now a gate keeper ! No pineapple on pizza !" << std::endl;
 }
+
+void ScavTrap::attack (const std::string &target)
+{
+	std::cout << _type << " "<< _name << " try to attack"  << std::endl;
+	if (_hitPoints > 0 && _energyPoints > 0)
+	{
+		std::cout << _type << " " << _name << " bonk " << target << " for " << _attackDamages << " ! Not so tough after all !"  << std::endl;
+		_energyPoints--;
+	}
+}

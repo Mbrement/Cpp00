@@ -5,7 +5,7 @@
 int	main(void)
 {
 	Bureaucrat pape;
-	Bureaucrat PDG("PDG", 50);
+	Bureaucrat PDG("PDG", 15);
 	std::cout << PDG << std::endl;
 	PDG.decrement();
 	std::cout << PDG << std::endl;
