@@ -1,5 +1,7 @@
 SRCS	=	main.cpp\
-			Bureaucrat.cpp\
+			Data.cpp\
+			Serialize.cpp\
+			Deserialize.cpp\
 			
 
 DIR_SRCS = src/
@@ -14,13 +16,15 @@ CC++	=	c++
 
 MKDIR	=	mkdir -p
 
-HEADERS	=	Bureaucrat.hpp\
+HEADERS	=	Data.hpp\
+			Serialize.hpp\
+			Deserialize.hpp\
 			
 
-NAME	=	Bureaucrat
+NAME	=	Serialize
 
 
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+C++FLAGS	= -Wall -Wextra -Werror -std=c++98 -v
  
 all :		${NAME}
 

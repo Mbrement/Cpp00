@@ -3,8 +3,7 @@
 
 int	main(void)
 {
-
-	// const AAnimal* meta = new AAnimal();
+// const AAnimal* meta = new AAnimal();
 const Cat *i = new Cat();
 const Dog* j = new Dog();
 const Cat *pet = new Cat("pet");

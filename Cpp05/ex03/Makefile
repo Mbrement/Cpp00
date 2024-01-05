@@ -29,7 +29,7 @@ HEADERS	=	Bureaucrat.hpp\
 NAME	=	Form
 
 
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98 -v
+C++FLAGS	= -Wall -Wextra -Werror -std=c++98
  
 all :		${NAME}
 

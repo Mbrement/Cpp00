@@ -23,6 +23,7 @@ Bureaucrat::Bureaucrat (const std::string name)
 	if (_grade > 150)
 		throw GradeTooLowException();
 }
+
 Bureaucrat::Bureaucrat (int grade)
 {
 	std::cout << "Graded Bureaucrat constructor called" << std::endl;
@@ -33,6 +34,7 @@ Bureaucrat::Bureaucrat (int grade)
 	if (_grade > 150)
 		throw GradeTooLowException();
 }
+
 Bureaucrat::Bureaucrat (const std::string name, int grade)
 {
 	std::cout << "Named & graded Bureaucrat constructor called" << std::endl;

@@ -8,17 +8,16 @@ class ScalarConverter
 {
 
 public :
-/*cannonical form*/
-	ScalarConverter();
-	ScalarConverter (const ScalarConverter &ScalarConverter);
-	~ScalarConverter();
-	ScalarConverter	&operator=(const ScalarConverter &ScalarConverter);
-/*cannonical form*/
 	void convert(std::string str);
-	char	chr;
-	int		i;
-	float	f;
-	double	d;
+	char 	getchr();
+	double 	getd();
+	int 	geti();
+	float 	getf();
+private:
+	char	_chr;
+	int		_i;
+	float	_f;
+	double	_d;
 };
 
 std::ostream& operator<<(std::ostream& out, const ScalarConverter& a);

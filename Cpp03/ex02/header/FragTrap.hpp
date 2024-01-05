@@ -17,6 +17,7 @@ public :
 	FragTrap	&operator=(const FragTrap &FragTrap);
 /*cannonical form*/
 	void highFiveGuys();
+	void attack (const std::string &target);
 
 private	:
 };

@@ -117,24 +117,26 @@ void Bureaucrat::signForm(Form &Form)
 		}
 		catch(std::exception &e){
 		std::cout << e.what() << std::endl;
-	}
+		}
 	}
 }
 
 
 void Bureaucrat::increment()
 {
-	_grade++;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
+	try{
+		setGrade(_grade - 1);
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }
 void Bureaucrat::decrement()
 {
-	_grade--;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
+	try{
+		setGrade(_grade + 1);
+	}
+	catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }

@@ -1,15 +1,16 @@
-#include "../header/Bureaucrat.hpp"
-
+#include "Deserialize.hpp"
+#include "Serialize.hpp"
+#include "Data.hpp"
+#include <iostream>
 
 
 int	main(void)
 {
-	Bureaucrat pape;
-	Bureaucrat PDG("PDG", 1);
+	Data test;
 
-	std::cout << pape << std::endl;
-	std::cout << PDG << std::endl;
-	pape.setGrade(2);
-	std::cout << pape << std::endl;
+	Serialize ser;
+	std::cout <<  ser.serialize(&test) << std::endl;
+	// Deserialize deser;
+	// std::cout << deser.deserialize(ser.serialize(&test)) << std::endl;
 	return 0;
 }

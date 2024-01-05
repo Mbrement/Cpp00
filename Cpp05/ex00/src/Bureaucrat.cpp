@@ -7,16 +7,17 @@ Bureaucrat::Bureaucrat ()
 	_grade = 150;
 }
 
-	void	Bureaucrat::changeGrade(int newGrade)
+void	Bureaucrat::changeGrade(int newGrade)
+{
+	try
 	{
-	try{
 		setGrade(newGrade);
 	}
 	catch(std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	}
+}
 
 Bureaucrat::Bureaucrat (const std::string name)
 {
@@ -40,13 +41,13 @@ Bureaucrat::Bureaucrat (int grade)
 Bureaucrat::Bureaucrat (const std::string name, int grade)
 {
 	std::cout << "Named & graded Bureaucrat constructor called" << std::endl;
-	_name = name;
 	try{
 		setGrade(grade);
 	}
 	catch(std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
+	_name = name;
 }
 
 Bureaucrat::Bureaucrat (const Bureaucrat &Bureaucrat)
@@ -117,7 +118,7 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& a)
 void Bureaucrat::increment()
 {
 	try{
-		setGrade(_grade++);
+		setGrade(_grade - 1);
 	}
 	catch(std::exception &e){
 		std::cout << e.what() << std::endl;
@@ -126,7 +127,7 @@ void Bureaucrat::increment()
 void Bureaucrat::decrement()
 {
 	try{
-		setGrade(_grade--);
+		setGrade(_grade + 1);
 	}
 	catch(std::exception &e){
 		std::cout << e.what() << std::endl;

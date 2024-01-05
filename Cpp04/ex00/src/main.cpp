@@ -17,6 +17,7 @@ int	main(void)
 	j->makeSound();
 	k->makeSound();
 	meta->makeSound();
+
 	delete meta;
 	delete i;
 	delete j;
