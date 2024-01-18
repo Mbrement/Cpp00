@@ -1,7 +1,7 @@
 #include "../header/AForm.hpp"
 
 
-Form::Form(): _name("DefaultFormName"),
+AForm::AForm(): _name("DefaultAFormName"),
 	_canSign(1),
 	_canExec(1)
 {
@@ -9,7 +9,7 @@ Form::Form(): _name("DefaultFormName"),
 }
 
 
-Form::Form(Form &other):
+AForm::AForm(AForm &other):
 	_name(other._name),
 	_canSign(other._canSign),
 	_canExec(other._canExec)
@@ -21,7 +21,7 @@ Form::Form(Form &other):
 	_signature = other._signature;
 }
 
-Form &Form::operator=(Form &other)
+AForm &AForm::operator=(AForm &other)
 {
 	std::string *tmp_name = (std::string*) &_name;
 	int *tmp_canSign = (int*) &_canSign;
@@ -37,7 +37,7 @@ Form &Form::operator=(Form &other)
 	return (*this);
 }
 
-Form::Form(const std::string name, int canSign, int canExec):
+AForm::AForm(const std::string name, int canSign, int canExec):
 	_name(name),
 	_canSign(canSign),
 	_canExec(canExec)
@@ -49,14 +49,14 @@ Form::Form(const std::string name, int canSign, int canExec):
 	_signature = 0;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
 
 
-void Form::Signed(Bureaucrat &target)
+void AForm::Signed(Bureaucrat &target)
 {
 	if (target.getGrade() <= _canSign)
 		_signature = true;
@@ -64,37 +64,37 @@ void Form::Signed(Bureaucrat &target)
 		throw GradeTooLowException();
 }
 
-const std::string &Form::name() const
+const std::string &AForm::name() const
 {
 	return (_name) ;
 }
 
-bool Form::signature() const
+bool AForm::signature() const
 {
 	return (_signature);
 }
 
-int Form::canSign() const
+int AForm::canSign() const
 {
 	return (_canSign);
 }
 
-int Form::getSigned() const
+int AForm::getSigned() const
 {
 	return (_signature);
 }
 
-int Form::canExec() const
+int AForm::canExec() const
 {
 	return (_canExec);
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return(_name);
 }
 
-void Form::beSigned(class Bureaucrat &Bureaucrat)
+void AForm::beSigned(class Bureaucrat &Bureaucrat)
 {
 	if (Bureaucrat.getGrade() > canSign())
 		throw GradeTooLowException();
@@ -102,40 +102,40 @@ void Form::beSigned(class Bureaucrat &Bureaucrat)
 	 	_signature = 1;
 }
 
-int Form::getCanExec() const
+int AForm::getCanExec() const
 {
 	return(_canExec);
 }
-int Form::getCanSign() const
+int AForm::getCanSign() const
 {
 	return(_canSign);
 }
 
-int Form::getSignature() const
+int AForm::getSignature() const
 {
 	return(_signature);
 }
 
-std::ostream& operator<<(std::ostream& out, const Form& a)
+std::ostream& operator<<(std::ostream& out, const AForm& a)
 {
 	std::cout << "The document have " << a.getSigned() << " signature " << " can be signed by level " << a.getCanSign() << " or more and be executed at level " << a.getCanExec();
 	return (out);
 }
 
 
-void Form::changeSignature( bool i)
+void AForm::changeSignature( bool i)
 {
 	_signature = i;
 }
-void Form::changeCanSign(int CanSign)
+void AForm::changeCanSign(int CanSign)
 {
 	_canSign = CanSign;
 }
-void Form::changeCanExec(int CanExec)
+void AForm::changeCanExec(int CanExec)
 {
 	_canExec = CanExec;
 }
-void Form::changeName(std::string &name)
+void AForm::changeName(std::string &name)
 {
 	_name = name;
 }

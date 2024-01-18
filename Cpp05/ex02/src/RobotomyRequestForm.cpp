@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-RobotomyRequestForm::RobotomyRequestForm(): Form()
+RobotomyRequestForm::RobotomyRequestForm(): AForm()
 {
 	std::string tmp;
 	tmp = "RobotomyRequestFormName";
@@ -12,7 +12,7 @@ RobotomyRequestForm::RobotomyRequestForm(): Form()
 	_target = "RobotomyRequestFormDefault";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target): Form()
+RobotomyRequestForm::RobotomyRequestForm(const std::string target): AForm()
 {
 	std::string tmp;
 	tmp = "RobotomyRequestFormName";
@@ -56,7 +56,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > getCanExec())
 		throw GradeTooLowException();
 	if (!getSignature())
-		throw FormNotSigned();
+		throw AFormNotSigned();
 	std::cout << executor.getName() << " execute " << getName() << std::endl;
 	executeCurrent();
 }

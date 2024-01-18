@@ -104,7 +104,7 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& a)
 	return(out);
 }
 
-void Bureaucrat::signForm(Form &Form)
+void Bureaucrat::signForm(AForm &Form)
 {
 	if (Form.getCanSign() > _grade)
 	{
@@ -135,12 +135,12 @@ void Bureaucrat::decrement()
 		throw GradeTooLowException();
 }
 
-void InternForm::execute(Bureaucrat const&) const
+void AForm::execute(Bureaucrat const&) const
 {
 
 }
 
-void Bureaucrat::executeForm(Form const &form) const
+void Bureaucrat::executeForm(AForm const &form) const
 {
 	form.execute(*this);
 }

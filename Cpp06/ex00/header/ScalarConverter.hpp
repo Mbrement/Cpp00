@@ -3,22 +3,19 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <cstdlib>
 
 class ScalarConverter
 {
 
 public :
-	void convert(std::string str);
-	char 	getchr();
-	double 	getd();
-	int 	geti();
-	float 	getf();
+	static void convert(std::string str);
 private:
-	char	_chr;
-	int		_i;
-	float	_f;
-	double	_d;
+	ScalarConverter();
+	ScalarConverter (const ScalarConverter &ScalarConverter);
+	~ScalarConverter();
+	ScalarConverter	&operator=(const ScalarConverter &ScalarConverter); 
 };
 
-std::ostream& operator<<(std::ostream& out, const ScalarConverter& a);
 #endif

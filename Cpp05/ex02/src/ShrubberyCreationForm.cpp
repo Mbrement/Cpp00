@@ -1,7 +1,7 @@
 #include "../header/ShrubberyCreationForm.hpp"
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form()
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm()
 {
 	std::string tmp;
 	tmp = "ShrubberyCreationFormName";
@@ -11,7 +11,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): Form()
 	_target = "ShrubberyCreationFormDefault";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): Form()
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm()
 {
 	std::string tmp;
 	tmp = "ShrubberyCreationFormName";
@@ -54,7 +54,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > this->getCanExec())
 		throw GradeTooLowException();
 	if (!this->getSignature())
-		throw FormNotSigned();
+		throw AFormNotSigned();
 	std::cout << executor.getName() << " execute " << getName()  << std::endl;
 	executeCurrent();
 }

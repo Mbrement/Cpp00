@@ -1,41 +1,11 @@
 #include "../header/ScalarConverter.hpp"
-#include <cctype>
-#include <cstdlib>
 	
-char ScalarConverter::getchr()
-{
-	return (_chr);
-}
-
-double ScalarConverter::getd()
-{
-	return (_d);
-}
-
-int ScalarConverter::geti()
-{
-	return (_i);
-}
-
-float ScalarConverter::getf()
-{
-	return (_f);
-}
-
-std::ostream& operator<<(std::ostream& out, ScalarConverter& a)
-{
-	if (std::isprint(a.getchr()))
-		std::cout << "char : " << a.getchr() << std::endl;
-	else 
-		std::cout << "char : Non displayable" << std::endl;;
-	std::cout << "double : " << a.getd() << std::endl;
-	std::cout << "int : " << a.geti() << std::endl;
-	std::cout << "float : " << a.getf() << std::endl;
-	return(out);
-}
-
 void	ScalarConverter::convert(std::string str)
 {
+	char	_chr;
+	int		_i;
+	float	_f;
+	double	_d;
 	if (str.empty())
 	{
 		std::cout << "no input" << std::endl;
@@ -71,7 +41,13 @@ void	ScalarConverter::convert(std::string str)
 		_f = static_cast<float>(_chr);
 		_i = static_cast<int>(_chr);
 		_d = static_cast<double>(_chr);
-		std::cout <<*this;
+		if (std::isprint(_chr))
+		std::cout << "char : " << _chr << std::endl;
+		else 
+			std::cout << "char : Non displayable" << std::endl;;
+		std::cout << "double : " << _d << std::endl;
+		std::cout << "int : " << _i << std::endl;
+		std::cout << "float : " << _f << std::endl;
 		return ;
 	}
 	size_t i= 0; 
@@ -112,17 +88,52 @@ void	ScalarConverter::convert(std::string str)
 				_chr = static_cast<char>(_d);
 				_f = static_cast<float>(_d);
 			}
-			std::cout << *this;
+		if (std::isprint(_chr))
+		std::cout << "char : " << _chr << std::endl;
+		else 
+			std::cout << "char : Non displayable" << std::endl;;
+		std::cout << "double : " << _d << std::endl;
+		std::cout << "int : " << _i << std::endl;
+		std::cout << "float : " << _f << std::endl;
 		}
 		else if (i == str.length() && j == 0)
 		{
-			_i = std::atof(str.c_str());
+			_i = std::atoi(str.c_str());
 			_f = static_cast<int>(_i);
 			_chr = static_cast<char>(_i);
 			_d = static_cast<double>(_i);
-			std::cout << *this;
+			if (std::isprint(_chr))
+				std::cout << "char : " << _chr << std::endl;
+			else 
+				std::cout << "char : Non displayable" << std::endl;;
+			std::cout << "double : " << _d << std::endl;
+			std::cout << "int : " << _i << std::endl;
+			std::cout << "float : " << _f << std::endl;
 		}
 	}
 	return;
 }
 
+
+
+
+ScalarConverter::ScalarConverter()
+{
+
+}
+
+ScalarConverter::ScalarConverter (const ScalarConverter &ScalarConverter)
+{
+	*this = ScalarConverter;
+}
+
+ScalarConverter::~ScalarConverter()
+{
+
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &ScalarConverter)
+{
+	(void)ScalarConverter;
+	return *this;
+}

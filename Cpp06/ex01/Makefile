@@ -1,7 +1,5 @@
 SRCS	=	main.cpp\
-			Data.cpp\
-			Serialize.cpp\
-			Deserialize.cpp\
+			Serialize.cpp
 			
 
 DIR_SRCS = src/
@@ -16,15 +14,13 @@ CC++	=	c++
 
 MKDIR	=	mkdir -p
 
-HEADERS	=	Data.hpp\
-			Serialize.hpp\
-			Deserialize.hpp\
+HEADERS	=	Serialize.hpp\SerializeSerialize
 			
 
 NAME	=	Serialize
 
 
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98 -v
+C++FLAGS	= -Wall -Wextra -Werror -std=c++98
  
 all :		${NAME}
 

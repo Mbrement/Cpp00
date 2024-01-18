@@ -13,6 +13,7 @@ ShrubberyCreationForm Tree("a random tree");
 PresidentialPardonForm forgiven("my cat");
 RobotomyRequestForm robot("somebody you used to know");
 Bureaucrat PDG("PDG", 1);
+Bureaucrat notPDG("notPDG", 150);
 Intern randomPeon;
 Form *newForm;
 Tree.Signed(PDG);
@@ -35,9 +36,16 @@ catch(std::exception &e)
 {
 	std::cout << e.what() << std::endl;
 }
+try {
 newForm = randomPeon.makeForm("RobotomyRequestForm", "NO");
-newForm->Signed(PDG);
-newForm->execute(PDG);
+newForm->Signed(notPDG);
+newForm->execute(notPDG);
+}
+catch(std::exception &e)
+{
+	std::cout << e.what() << std::endl;
+}
+
 delete newForm;
 	return 0;
 }

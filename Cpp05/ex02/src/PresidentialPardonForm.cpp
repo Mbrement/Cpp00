@@ -1,7 +1,7 @@
 #include "../header/PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(): Form()
+PresidentialPardonForm::PresidentialPardonForm(): AForm()
 {
 	std::string tmp;
 	tmp = "PresidentialPardonFormName";
@@ -11,7 +11,7 @@ PresidentialPardonForm::PresidentialPardonForm(): Form()
 	_target = "PresidentialPardonFormDefault";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target): Form()
+PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm()
 {
 	std::string tmp;
 	tmp = "PresidentialPardonFormName";
@@ -54,7 +54,7 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > getCanExec())
 		throw GradeTooLowException();
 	if (!getSignature())
-		throw FormNotSigned();
+		throw AFormNotSigned();
 	std::cout << executor.getName() << " execute " << getName() << std::endl;
 	executeCurrent();
 }

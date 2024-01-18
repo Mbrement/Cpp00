@@ -7,18 +7,18 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 
 public :
-/*cannonical form*/
-	Form();
-    Form(Form &other);
-    Form &operator=(Form &other);
-	virtual ~Form() = 0;
-/*cannonical form*/
+/*cannonical Aform*/
+	AForm();
+    AForm(AForm &other);
+    AForm &operator=(AForm &other);
+	virtual ~AForm() = 0;
+/*cannonical Aform*/
 
-    Form(const std::string name, int canSign, int canExec);
+    AForm(const std::string name, int canSign, int canExec);
 
 	int getCanSign() const;
 	int getCanExec() const;
@@ -44,12 +44,12 @@ public :
 		}
 	};
 
-	class FormNotSigned : public std::exception
+	class AFormNotSigned : public std::exception
 	{
 	public:
 		const char* what() const throw()
 		{
-			return "Form unsigned";
+			return "AForm unsigned";
 		}
 	};
 	const std::string& name() const;
@@ -73,6 +73,6 @@ private	:
 	int _canExec;
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& a);
+std::ostream& operator<<(std::ostream& out, const AForm& a);
 
 #endif
