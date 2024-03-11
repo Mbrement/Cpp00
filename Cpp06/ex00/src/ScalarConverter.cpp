@@ -1,4 +1,5 @@
 #include "../header/ScalarConverter.hpp"
+
 	
 void	ScalarConverter::convert(std::string str)
 {
@@ -47,7 +48,7 @@ void	ScalarConverter::convert(std::string str)
 			std::cout << "char : Non displayable" << std::endl;;
 		std::cout << "double : " << _d << std::endl;
 		std::cout << "int : " << _i << std::endl;
-		std::cout << "float : " << _f << std::endl;
+		std::cout << "float : " << _f << "f" << std::endl;
 		return ;
 	}
 	size_t i= 0; 
@@ -83,32 +84,35 @@ void	ScalarConverter::convert(std::string str)
 			}
 			else 
 			{
-				_d = std::atof(str.c_str());
+				_d = std::strtod(str.c_str(), NULL);
 				_i = static_cast<int>(_d);
 				_chr = static_cast<char>(_d);
 				_f = static_cast<float>(_d);
 			}
 		if (std::isprint(_chr))
-		std::cout << "char : " << _chr << std::endl;
+			std::cout << "char : " << _chr << std::endl;
 		else 
 			std::cout << "char : Non displayable" << std::endl;;
 		std::cout << "double : " << _d << std::endl;
 		std::cout << "int : " << _i << std::endl;
-		std::cout << "float : " << _f << std::endl;
+		std::cout << "float : " << _f << "f" << std::endl;
 		}
 		else if (i == str.length() && j == 0)
 		{
-			_i = std::atoi(str.c_str());
-			_f = static_cast<int>(_i);
-			_chr = static_cast<char>(_i);
-			_d = static_cast<double>(_i);
+			_i = atoi(str.c_str());
+			_f = static_cast<float>(std::strtod(str.c_str(), NULL));
+			_chr = static_cast<char>(std::strtod(str.c_str(), NULL));
+			_d = static_cast<double>(std::strtod(str.c_str(), NULL));
 			if (std::isprint(_chr))
 				std::cout << "char : " << _chr << std::endl;
 			else 
 				std::cout << "char : Non displayable" << std::endl;;
 			std::cout << "double : " << _d << std::endl;
-			std::cout << "int : " << _i << std::endl;
-			std::cout << "float : " << _f << std::endl;
+			if (std::strtod(str.c_str(), NULL) <= INT_MAX && std::strtod(str.c_str(), NULL) >= INT_MIN)
+				std::cout << "int : " << _i << std::endl;
+			else
+			 	std::cout << "int : " << "impossible" << std::endl;
+			std::cout << "float : " << _f << "f" << std::endl;
 		}
 	}
 	return;
