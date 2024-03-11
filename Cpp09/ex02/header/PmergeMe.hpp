@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
+#include <iterator>
 
 
 class PmergeMe
@@ -27,8 +28,8 @@ class PmergeMe
 		}
 	};
 	void parsing(const char **argv);
-	std::vector<int> _vec;
-	std::deque<int> _deq;
+	std::vector<unsigned int> _vec;
+	std::deque<unsigned int> _deq;
 
 };
 
