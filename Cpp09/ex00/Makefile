@@ -20,7 +20,7 @@ HEADERS	=	BitcoinExchange.hpp\
 NAME	=	btc
 
 
-C++FLAGS	= -Wall -Wextra -Werror -std=c++98
+C++FLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
  
 all :		${NAME}
 

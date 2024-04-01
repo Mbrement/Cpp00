@@ -5,6 +5,11 @@
 
 template <typename T>
 class Array {
+
+private :
+	T *_data;
+	size_t _size;
+	
 public :
 	Array(){
 		_size = 0;
@@ -18,6 +23,7 @@ public :
 		for (size_t i = 0; i < _size; i++)
 			_data[i] = T();
 	}
+
 	Array(const Array<T>& cpy) :
 		_data(new T[cpy._size]),
 		_size(cpy._size)
@@ -61,11 +67,6 @@ public :
 		return _data[index];
 	}
 
-	T setT(size_t i);
-
-private :
-	T *_data;
-	size_t _size;
 };
 
 

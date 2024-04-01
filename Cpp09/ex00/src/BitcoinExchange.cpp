@@ -8,15 +8,14 @@ BitcoinExchange::BitcoinExchange(std::string  data){
 	_str = data;
 	_data.open(data.c_str(), std::fstream::in);
 	if (!_data.is_open())
-	{
 		throw CreateExept();
-	}
 	std::ifstream csv("data.csv");
 	std::string str;
 	std::string str2;
 	if (!csv.is_open())
 	{
 		std::cout << "Error  : Can't find csv" << std::endl;
+		throw CreateExept();
 	}
 	std::getline(csv, str);
 	while (std::getline(csv, str, ','))
