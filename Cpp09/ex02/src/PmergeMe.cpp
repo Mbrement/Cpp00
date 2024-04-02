@@ -4,77 +4,77 @@
 #include <utility>
 #include <vector>
 
+
+
+size_t  PmergeMe::Jacobsthal(size_t count){
+	size_t rtn = 0;
+
+	for (size_t i = 0; i <= count; i++)
+		rtn = std::pow(2, i) - rtn;
+	return rtn;
+}
+
+void PmergeMe::sortVec(std::vector<unsigned int> &vec){
+	if (vec.size() == 0)
+		return;
+	std::pair<unsigned int, unsigned int> pair[vec.size()/2];
+	size_t i = 0;
+	std::vector<unsigned int> tmp;
+	for (; i < vec.size(); i += 2){
+		pair[i>>1].first = vec.at(i);
+		pair[i>>1].second = vec.at(i + 1);
+		if (pair[i>>1].first < pair[i>>1].second)
+			std::swap(pair[i>>1].first, pair[i>>1].second);
+	}
+	
+	// for (size_t j = 0; j < vec.size() / 2; j++)
+	// {
+	// 	if (pair[j].first > pair[j + 1].first)
+	// 	{
+	// 		std::swap(pair[j], pair[j + 1]);
+	// 		j--;
+	// 	}
+	// }
+	// for (size_t k = 0; k < vec.size() / 2; k++)
+	// 	tmp.push_back(pair[k].first);
+	// size_t high = 0;
+	// size_t low = 0;
+	// size_t k = 0;
+	// for (size_t count = 0; count < vec.size() / 2; count++){
+	// 	k = count;
+	// 	if (pair[k].second < tmp.at(tmp.size() / 2)){
+	// 		high = tmp.size() / 2;
+	// 		low = 0;
+	// 	}
+	// 	else {
+	// 		high = tmp.size();
+	// 		low = tmp.size() / 2;
+	// 	}
+	// 	while ( high - low == 0){
+	// 	if (pair[k].second < tmp.at(tmp.size() / 2))
+	// 		high -= (high - low) / 2;
+	// 	else 
+	// 		low += (high - low) / 2;
+	// 	}
+		tmp.insert(tmp.begin() + low, pair[k].second);
+	}
+	// this->_vec = tmp;
+// }
+
+void PmergeMe::sortDeque(){
+	std::pair<unsigned int, unsigned int> pair[_deq.size()/2];
+
+}
+
+
 void PmergeMe::sort ()
 {
-	// std::vector<int>::reference itVec = _vec.at(0);	
-	// std::vector<int>::reference itVec2 = _vec.at(1);
-	std::pair<unsigned int, unsigned int> yay[_vec.size()/2];
-	// std::vector<int>::const_iterator itVectmp;
-	// *itVec = _vec.begin();
-	// *itVec2 = --_vec.end();
-	// if (itVec > itVec2)
-	// {	
-	// 	std::cout<<"trigger :" << itVec << itVec2;
-	// 	std::swap(_vec.at(0), _vec.at(1));
-	// }
-	size_t i = 0;
-
-	for (; i < _vec.size() / 2; i++)
-	{
-		yay[i].first = _vec.at(i * 2);
-		yay[i].second = _vec.at(i * 2 + 1);
-		// std::cout <<"test "<< yay[i].first << "|" << yay[i].second <<std::endl;
-		if (yay[i].first < yay[i].second)
-		{
-			std::cout << "trigger"<<std::endl;
-			std::swap(yay[i].first, yay[i].second);
-		}
-			std::cout <<"test "<< yay[i].first << "|" << yay[i].second <<std::endl;
-	}
-	for (size_t j = 0; j < _vec.size() / 2; j++)
-	{
-		if ( j < _vec.size() / 2 - 1 && yay[j].first > yay[j + 1].first)
-		{
-			std::cout<<yay[j].first <<"yay" << yay[j+1].first << "&&" << j<<std::endl;
-			std::swap(yay[j], yay[j + 1]);
-			j--;
-		}
-	}
-
-	std::vector<unsigned int> tmp;
-	for (size_t k = 0; k < _vec.size() / 2; k++)
-		tmp.push_back(-1);
-	for (size_t k = 0; k < i; k++)
-		tmp.at(k)=yay[k].first;
-	for (size_t  k = 0, w = 0; k < _vec.size() / 2 - 1; w = 0, k++, w=0)
-	{
-		// int pow;
-		// pow = 2 ^(index-1) - pow;
-		while (yay[k].second > tmp.at(w))
-			w++;
-		tmp.insert(tmp.begin() + w, yay[k].second); // change index of insert to have the A001768 sorting list https://en.wikipedia.org/wiki/Merge-insertion_sort
-	}
-	// for (size_t k = i + 1, j = 0; k > 0; k--, j=0)
-	// {
-	// 	while (tmp[j] < yay[k].first)
-	// 		j++;
-	// 	// tmp.at(j) = yay[k].first;
-
-	// 	tmp.insert(tmp.begin()+ j, yay[k].first);
-	// }
-
-
-
-		// tmp.push_back(yay[k].first);
-	if (_vec.size()%2)
-	{
-		int w;
-		w = 0;
-			while (*_vec.end() > tmp.at(w))
-				w++;
-			tmp.insert(tmp.begin() + w, *_vec.end());;
-	}
-	_vec = tmp;
+	size_t T;
+	T = clock();
+	this->sortVec();
+	T = clock() - T;
+	this->printVector();
+	std::cout << T << "ms since start" << std::endl;
 	// tmp.insert()
 
 	// PmergeMe kill;
@@ -85,21 +85,25 @@ void PmergeMe::sort ()
 PmergeMe::PmergeMe()
 {
 	std::cout << "How did you create this heresy ? (default constructor called) \nNow crash" << std::endl;
+	exit(1);
 	// make it sefgault
 	char *str = NULL;
 	int i = 55;
 	int j = -1;
 	while( ++j < i)
 		str[j] = ' ';
-	std::cout << str << "yay";
+	std::cout << str << "pair";
 	//end of crashing sequence
 	exit(0);
 }
 
 void PmergeMe::parsing(const char **argv)
 {
-(void)argv;
-// throw PmergeMe::InvalidArgument();
+	for (size_t i = 0; argv[i]; i++)
+	{
+		if (std::atoi(argv[i]) <= 0)
+			throw PmergeMe::InvalidArgument();
+	}
 }
 
 PmergeMe::PmergeMe (const PmergeMe &other)
@@ -110,7 +114,6 @@ PmergeMe::PmergeMe (const PmergeMe &other)
 void PmergeMe::printVector()
 {
 	std::cout << "Vector : ";
-	// int i;
 	std::vector<unsigned int>::iterator itVec1 = _vec.begin();
 	std::vector<unsigned int>::iterator itVec2 = _vec.end();
 	while (itVec1 != itVec2)
@@ -124,12 +127,12 @@ void PmergeMe::printVector()
 }
 void PmergeMe::printDeque()
 {
-	std::cout << "Deque :";
+	std::cout << "Deque : ";
 	std::deque<unsigned int>::iterator itDeq1 = _deq.begin();
 	std::deque<unsigned int>::iterator itDeq2 = _deq.end();
 	while (itDeq1 != itDeq2)
 	{
-		std::cout << " " << *itDeq1 << " ";
+		std::cout << *itDeq1 << " ";
 		itDeq1++;
 	}
 	std::cout << std::endl;
@@ -147,9 +150,9 @@ PmergeMe::PmergeMe (const char** argv)
 		std::cout << e.what() << std::endl;
 		exit (EXIT_FAILURE);
 	}
-	size_t i;
-	i = 0;
+	size_t i = 0;
 	int tmp[1];
+	this->_time = clock();
 	while (argv[i] != NULL)
 	{
   		*tmp = atoi(argv[i]);
@@ -168,5 +171,6 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &other)
 {
 	this->_deq = other._deq;
 	this->_vec = other._vec;
+	this->_time = other._time;
 	return *this;
 }

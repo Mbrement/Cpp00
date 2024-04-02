@@ -9,10 +9,9 @@ int	main(int argc, char **argv)
 		return 0;
 	}
 	PmergeMe vest((const char **)argv + 1);
-
+	
 	vest.printVector();
 	vest.sort();
-	vest.printVector();
-	vest.printDeque();
+	// vest.printDeque();
 return 0;
 }
