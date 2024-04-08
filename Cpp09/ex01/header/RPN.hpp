@@ -7,8 +7,14 @@
 
 class RPN
 {
-	public :
+private:
+	RPN();
+	RPN(const RPN& other);
+	~RPN();
+	RPN&	operator=(const RPN& rightValue);
+public :
 	static void run (char **argv);
+
 };
 
 #endif

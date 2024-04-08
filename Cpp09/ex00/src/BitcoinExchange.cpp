@@ -1,22 +1,20 @@
 #include "../header/BitcoinExchange.hpp"
-#include <cstdio>
-#include <iterator>
-#include <map>
-#include <string>
 
-BitcoinExchange::BitcoinExchange(std::string  data){
+
+BitcoinExchange::BitcoinExchange(std::string data) {
 	_str = data;
 	_data.open(data.c_str(), std::fstream::in);
 	if (!_data.is_open())
 		throw CreateExept();
 	std::ifstream csv("data.csv");
-	std::string str;
-	std::string str2;
 	if (!csv.is_open())
 	{
 		std::cout << "Error  : Can't find csv" << std::endl;
 		throw CreateExept();
 	}
+
+	std::string str;
+	std::string str2;
 	std::getline(csv, str);
 	while (std::getline(csv, str, ','))
 	{
@@ -53,17 +51,17 @@ BitcoinExchange::BitcoinExchange(){
 
 }
 
-bool check_str(std::string str)
+bool check_date_format(std::string str)
 {
 	int month;
 	int year;
 	int day;
-	if (str.size() != 10 || str[4] != '-' & str[6] != '-')
+	if ((str.size() != 10 || str[4] != '-') && str[6] != '-')
 		return false;
-	int i = -1;
-	while (str[++i])
-		if ((i != 4 && i!= 7 && !std::isdigit(str[i])))
+	for (int i = 0; str[i]; i++)
+		if (i != 4 && i != 7 && !std::isdigit(str[i]))
 			return false;
+
 	if (str < "2009-01-02")
 	{
 		std::cout << "Data too old ";
@@ -78,48 +76,54 @@ bool check_str(std::string str)
 		(day > 30 && (month == 4 || month == 6 || month == 9 || month == 11)) || \
 		(day > 29 && month == 2 && year % 4 == 0) || \
 		(day > 28 && month == 2 && year % 4 != 0))
-	{
-		std::cout <<str << year%4<<std::endl;
 		return false;
-	}
 	return true;
 }
 
 void BitcoinExchange::run()
 {
-	int tmp;
 	std::string str;
-	std::string str2;
 	std::getline(_data, str);
-	size_t count;
 	if (str != "date | value")
 		throw FormatExept();
+
 	while (std::getline(_data, str, ' '))
 	{
-		count = 0;
-		if (!check_str(str))
+		size_t count = 0;
+		if (!check_date_format(str))
 		{
-			std::cout<< "Wrong format of line" << std::endl;
+			std::cout << "Wrong format of line" << std::endl;
 			std::getline(_data, str);
 			continue;
 		}
+
+		std::string str2;
 		std::getline(_data, str2, ' ');
 		if (str2 != "|")
 		{
-		
-			std::cout<< "Wrong format of line" << std::endl;
+			std::cout << "Wrong format of line" << std::endl;
 			std::getline(_data, str);
 			continue;
 		}
+
 		std::getline(_data, str2);
-		for (int i = 0;  (str2[i]); i++)
+		for (int i = 0; str2[i]; i++)
 		{
 			if (!std::isdigit(str2[i]))
 			{
 				if (str2[i] == '.')
-					count++;
+				{
+					count++; 
+					if (count > 1)
+					{
+						break;
+					}
+				}
 				else
+				{
 					count += 2;
+					break;
+				}
 			}
 		}
 		if (count > 1)
@@ -128,8 +132,9 @@ void BitcoinExchange::run()
 			std::cout << "Wrong format of line" << std::endl;
 			continue;
 		}
-		tmp = std::atof(str2.c_str());
-		if ( tmp > 1000.0f || tmp < 1.0f )
+
+		double tmp = std::atof(str2.c_str());
+		if ( tmp > 1000.0 || tmp < 1.0 )
 		{		
 			std::cout << "Wrong format of line" << std::endl;
 			continue;

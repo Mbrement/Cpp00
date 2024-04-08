@@ -9,8 +9,8 @@
 #include <string>
 #include <sstream>
 
-class BitcoinExchange{
-	public :
+class BitcoinExchange {
+public:
 	BitcoinExchange(std::string data);
 	~BitcoinExchange();
 
@@ -33,10 +33,12 @@ class BitcoinExchange{
 	};
 
 	void	run();
-	private :
-	BitcoinExchange (const BitcoinExchange &BitcoinExchange);
+
+private:
+	BitcoinExchange(const BitcoinExchange& BitcoinExchange);
 	BitcoinExchange();
-	BitcoinExchange	&operator=(const BitcoinExchange &BitcoinExchange);
+	BitcoinExchange& operator=(const BitcoinExchange& BitcoinExchange);
+	
 	std::fstream _data;
 	std::string _str;
 	std::map<std::string, float> _map;

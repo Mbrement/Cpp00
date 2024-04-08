@@ -7,7 +7,4 @@ int	main(int argc, char **argv)
 		std::cout <<"Too many argument" << std::endl;
 	else
 		RPN::run(argv + 1);
-
-		// std::getline();
-return 0;
 }
